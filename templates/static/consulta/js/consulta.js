@@ -19,7 +19,7 @@ function coleta_marcas(){
 
     text_referencia = document.getElementById('text_referencia')
     text_referencia.innerHTML = ""
-    
+     
     div_modelos_info = document.getElementById('modelo_info_selecionado')
     div_modelos_info.innerHTML = ""
 
@@ -27,7 +27,7 @@ function coleta_marcas(){
     data = new FormData()
     data.append('tipo_veiculo_id', tipo_veiculo_id)
 
-    fetch("/consulta/coleta_marcas",{
+    fetch("/coleta_marcas",{
         method: "POST",
         headers: {
             'X-CSRFToken': csrf_token,
@@ -68,7 +68,7 @@ function coleta_modelos(){
     data = new FormData()
     data.append('marca_id', marca_id)
 
-    fetch("/consulta/coleta_modelos",{
+    fetch("/coleta_modelos",{
         method: "POST",
         headers: {
             'X-CSRFToken': csrf_token,
@@ -108,7 +108,7 @@ function coleta_modelos_info(linha){
     data = new FormData()
     data.append('fip_code', fip_code)
 
-    fetch("/consulta/coleta_modelos_info",{
+    fetch("/coleta_modelos_info",{
         method: "POST",
         headers: {
             'X-CSRFToken': csrf_token,
