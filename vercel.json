@@ -1,13 +1,27 @@
 {
-    "builds": [{
-      "src": "tabela_fipe/wsgi.py",
-      "use": "@vercel/python",
-      "config": { "maxLambdaSize": "15mb", "runtime": "python3.13.3" }
-    }],
+    "version": 2,
+    "builds": [
+      {
+        "src": "manage.py",
+        "use": "@vercel/python",
+        "config": {
+          "runtime": "python3.11"
+        }
+      }
+    ],
     "routes": [
       {
+        "src": "/static/(.*)",
+        "dest": "/static/$1"
+      },
+      {
         "src": "/(.*)",
-        "dest": "tabela_fipe/wsgi.py"
+        "dest": "manage.py"
       }
-    ]
-}
+    ],
+    "env": {
+      "DJANGO_SETTINGS_MODULE": "tabela_fipe.settings",
+      "PYTHONPATH": "./"
+    }
+  }
+  
