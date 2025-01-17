@@ -1,8 +1,7 @@
 {
     "routes": [
       {
-        "src": "/(.*)",
-        "dest": "tabela_fipe/wsgi.py"
+        "src": "/(.*)"
       }
     ]
 }
