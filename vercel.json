@@ -1,13 +1,22 @@
 {
-    "builds": [{
-      "src": "tabela_fipe/wsgi.py",
-      "use": "@vercel/python",
-      "config": { "maxLambdaSize": "15mb", "runtime": "python3.13" }
-    }],
+    "builds": [
+        {
+            "src": "tabela_fipe/wsgi.py",
+            "use": "@vercel/python",
+            "config": {
+                "maxLambdaSize": "15mb",
+                "runtime": "python3.13"
+            }
+        }
+    ],
     "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "tabela_fipe/wsgi.py"
-      }
+        {
+            "src": "/static/(.*)",
+            "dest": "/static/$1"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "tabela_fipe/wsgi.py"
+        }
     ]
 }
